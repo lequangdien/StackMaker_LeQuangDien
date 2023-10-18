@@ -171,7 +171,7 @@ public class Player : MonoBehaviour
             UnBrick unbrik = other.GetComponent<UnBrick>();
             if (!unbrik.isCollect)
             {
-                isMoving = true;
+             
                 targetPoint=other.transform.position -Vector3.forward;
                 //coment
             }
