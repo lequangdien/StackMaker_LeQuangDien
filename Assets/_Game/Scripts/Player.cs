@@ -173,6 +173,7 @@ public class Player : MonoBehaviour
             {
                 isMoving = true;
                 targetPoint=other.transform.position -Vector3.forward;
+                //coment
             }
         }
 
