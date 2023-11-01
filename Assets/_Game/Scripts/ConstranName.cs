@@ -6,4 +6,5 @@ public class ConstranName
 {
     public static string Player_Name = "Player";
     public static string Unbrick = "Unbrick";
+    public static string FinishBlock = "FinishBlock";
 }

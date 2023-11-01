@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public enum Direct { Forward,Back,Right,Left,None}
 public class Player : MonoBehaviour
 {
@@ -16,13 +17,16 @@ public class Player : MonoBehaviour
 
     private bool isMoving;
     private Vector3 targetPoint;
-    private Vector3 stopPoint;
+ //   private Vector3 stopPoint;
     private Vector3 mouseDown, mouseUp;
-  
+   
+   
+
     // Start is called before the first frame update
     void Start()
     {
         OnInit();
+       
     }
 
     // Update is called once per frame
@@ -149,6 +153,9 @@ public class Player : MonoBehaviour
         playerBrick.localPosition = Vector3.down + index * 0.25f * Vector3.up ;
 
         playerBricks.Add(playerBrick);
+        
+
+    
 
       //  playerSkin.localPosition = playerSkin.localPosition + Vector3.up * 0.25f;
     }
@@ -164,18 +171,29 @@ public class Player : MonoBehaviour
         
 
     }
+    public void ClearBrick()
+    {
+
+    }
+    
+    
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag(ConstranName.FinishBlock))
+        {
+            UIManager.Instance.VictoryUI();
+        }
         if (other.CompareTag(ConstranName.Unbrick) && playerBricks.Count <=0)
         {
             UnBrick unbrik = other.GetComponent<UnBrick>();
             if (!unbrik.isCollect)
             {
              
-                targetPoint=other.transform.position -Vector3.forward;
+                targetPoint=other.transform.position - Vector3.forward;
                 //coment
             }
         }
+        
 
     }
 }
