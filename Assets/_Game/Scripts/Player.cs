@@ -23,11 +23,11 @@ public class Player : MonoBehaviour
    
 
     // Start is called before the first frame update
-    void Start()
-    {
-        OnInit();
+    //void Start()
+    //{
+    //    OnInit();
        
-    }
+    //}
 
     // Update is called once per frame
     void Update()
@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
     public void OnInit()
     {
         isMoving=false;
+        playerSkin.localPosition = Vector3.zero;
     }
     private Direct GetDirect(Vector3 mouseDown,Vector3 mouseUp)
     {
